@@ -10,13 +10,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active ms-2" routerLink="/home">Home</a>
+                        <a class="nav-link ms-2" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/pratos">Pratos</a>
+                        <a class="nav-link" routerLink="/pratos" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Pratos</a>
                     </li>
                     <li class="nav-item">
-                       <a class="nav-link" routerLink="/bebidas">Bebidas</a>
+                       <a class="nav-link" routerLink="/bebidas" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Bebidas</a>
                     </li>
                 </ul>
             </div>
