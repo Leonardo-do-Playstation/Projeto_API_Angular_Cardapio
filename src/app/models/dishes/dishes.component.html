@@ -6,7 +6,7 @@
     <form [formGroup]="form" (ngSubmit)="save()">
 
         <div class="mb-3">
-            <label class="form-label fw-bold">Nome do Prato</label>
+            <label class="form-label fw-bold">Nome</label>
             <input type="text" class="form-control" formControlName="nome" required>
         </div>
 
@@ -17,8 +17,9 @@
 
         <div class="mb-3">
             <label class="form-label fw-bold">Descrição</label>
-            <textarea class="form-control" rows="3" formControlName="descricao"></textarea>
+            <textarea class="form-control" rows="3" formControlName="descricao" required></textarea>
         </div>
+
 
         <button class="btn btn-success w-100 fw-bold mt-3" type="submit">
             {{ editMode ? "Salvar Alterações" : "Salvar Prato" }}
