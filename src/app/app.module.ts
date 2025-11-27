@@ -9,6 +9,8 @@ import { NavbarComponent } from './models/navbar/navbar.component';
 import { HeaderComponent } from './models/header/header.component';
 import { FooterComponent } from './models/footer/footer.component';
 import { HomeComponent } from './models/home/home.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { HomeComponent } from './models/home/home.component';
     NavbarComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

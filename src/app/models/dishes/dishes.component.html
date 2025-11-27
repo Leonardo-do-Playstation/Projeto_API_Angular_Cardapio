@@ -1,65 +1,54 @@
-<div class="card shadow p-4 mt-4 mx-auto mt-5" style="max-width: 500px;">
-    <h3 class="text-center mb-3 text-danger fw-bold">Cadastrar Prato</h3>
+<div class="card shadow p-4 mt-4 mx-auto" style="max-width: 500px;">
+    <h3 class="text-center mb-3 text-danger fw-bold">
+        {{ editMode ? "Editar Prato" : "Cadastrar Prato" }}
+    </h3>
 
-    <form>
-
+    <form [formGroup]="form" (ngSubmit)="save()">
 
         <div class="mb-3">
             <label class="form-label fw-bold">Nome do Prato</label>
-            <input type="text" class="form-control" placeholder="Ex: Feijoada" required>
+            <input type="text" class="form-control" formControlName="nome" required>
         </div>
-
 
         <div class="mb-3">
             <label class="form-label fw-bold">Preço (R$)</label>
-            <input type="number" step="0.01" class="form-control" placeholder="Ex: 25.90" required>
+            <input type="number" step="0.01" class="form-control" formControlName="preco" required>
         </div>
 
         <div class="mb-3">
             <label class="form-label fw-bold">Descrição</label>
-            <textarea class="form-control" rows="3" placeholder="Ex: Prato tradicional brasileiro..."></textarea>
+            <textarea class="form-control" rows="3" formControlName="descricao"></textarea>
         </div>
 
         <button class="btn btn-success w-100 fw-bold mt-3" type="submit">
-            Salvar Prato
+            {{ editMode ? "Salvar Alterações" : "Salvar Prato" }}
         </button>
-
     </form>
 </div>
 
 <div class="container mt-5">
     <h3 class="text-center mb-4 text-danger fw-bold">Lista de Pratos</h3>
+
     <div class="table-responsive shadow rounded">
         <table class="table table-striped table-hover align-middle">
             <thead class="table-danger">
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Preço (R$)</th>
-                    <th scope="col">Descrição</th>
-                    <th scope="col" class="text-center">Ações</th>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Preço (R$)</th>
+                    <th>Descrição</th>
+                    <th class="text-center">Ações</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Feijoada</td>
-                    <td>25.90</td>
-                    <td>Prato tradicional brasileiro...</td>
+                <tr *ngFor="let item of dishes; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ item.nome }}</td>
+                    <td>{{ item.preco }}</td>
+                    <td>{{ item.descricao }}</td>
                     <td class="text-center">
-                        <button class="btn btn-sm btn-warning me-1">Editar</button>
-                        <button class="btn btn-sm btn-danger">Excluir</button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Strogonoff</td>
-                    <td>28.50</td>
-                    <td>Carne ao molho cremoso...</td>
-                    <td class="text-center">
-                        <button class="btn btn-sm btn-warning me-1">Editar</button>
-                        <button class="btn btn-sm btn-danger">Excluir</button>
+                        <button class="btn btn-sm btn-warning me-1" (click)="edit(item)">Editar</button>
+                        <button class="btn btn-sm btn-danger" (click)="delete(item._id!)">Excluir</button>
                     </td>
                 </tr>
             </tbody>
