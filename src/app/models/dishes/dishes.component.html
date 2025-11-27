@@ -24,6 +24,11 @@
         <button class="btn btn-success w-100 fw-bold mt-3" type="submit">
             {{ editMode ? "Salvar Alterações" : "Salvar Prato" }}
         </button>
+
+        <button *ngIf="editMode" class="btn btn-secondary w-100 fw-bold mt-2" type="button" (click)="resetForm()">
+            Cancelar Edição
+        </button>
+        
     </form>
 </div>
 
