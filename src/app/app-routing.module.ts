@@ -7,8 +7,8 @@ import { DrinksComponent } from './models/drinks/drinks.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },       
   { path: 'home', component: HomeComponent },
-  { path: 'pratos', component: DishesComponent },
-  { path: 'bebidas', component: DrinksComponent },
+  { path: 'dishes', component: DishesComponent },
+  { path: 'drinks', component: DrinksComponent },
 ];
 
 @NgModule({
